@@ -26,7 +26,8 @@ class TagManager {
 
     const data = Object.keys(this.data).length > 0 ? JSON.stringify(this.data) : '';
 
-    return (
+    return ([
+      <script key={`${COMPONENT_KEY}-gtag`} async src={`https://www.googletagmanager.com/gtag/js?id=${this.id}`} />,
       <script
         key={`${COMPONENT_KEY}-script`}
         dangerouslySetInnerHTML={{
@@ -35,7 +36,7 @@ class TagManager {
           `,
         }}
       />
-    );
+    ]);
 
   }
 

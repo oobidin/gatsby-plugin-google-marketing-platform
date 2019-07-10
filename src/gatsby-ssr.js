@@ -1,5 +1,7 @@
 import React from 'react';
 
+import flatten from 'lodash.flatten'
+
 import TagManager from './lib/tagmanager';
 import Analytics from './lib/analytics';
 import Optimize from './lib/optimize';
@@ -13,7 +15,7 @@ function plugin({ setHeadComponents, setPreBodyComponents }, pluginOptions = {})
   const optimize = new Optimize(pluginOptions.optimize);
 
   setHeadComponents([
-    tagmanager.dataLayer(),
+    flatten(tagmanager.dataLayer()),
     analytics.setup(),
     optimize.asyncHide(),
     analytics.script(),

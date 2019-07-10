@@ -3,7 +3,5 @@
  */
 
 export function paramStringFromObject(object) {
-  return Object.keys(object).reduce((accumulator, value, index) => {
-    return accumulator += `&${value}=${object[value]}`;
-  }, '');
+  return Object.keys(object).reduce((accumulator, value) => accumulator + `&${value}=${object[value]}`, '');
 }
